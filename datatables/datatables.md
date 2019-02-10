@@ -30,9 +30,7 @@ Cons:
 
 And this is what we're trying to achieve:
 
-<center>
-![DataTable representation of pandas DataFrame](static/img/datatables.png)
-</center>
+![DataTable representation of pandas DataFrame](/datatables/static/img/datatables.png)
 
 <br>
 
@@ -54,9 +52,7 @@ df = pd.DataFrame({ 'A' : 1.,
 df
 ```
 
-<center>
-![Original pandas DataFrame](static/img/dataframe.png)
-</center>
+![Original pandas DataFrame](/datatables/static/img/dataframe.png)
 
 <br>
 
@@ -72,6 +68,10 @@ Example of what that string might look like:
 
 ```python
 df.to_html()
+```
+
+```html
+<table border="1" class="dataframe">\n  <thead>\n    <tr style="text-align: right;">\n      <th></th>\n      <th>A</th>\n      <th>B</th>\n      <th>C</th>\n      <th>D</th>\n      <th>E</th>\n      <th>F</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>1.0</td>\n      <td>2013-01-02</td>\n      <td>1.0</td>\n      <td>3</td>\n      <td>test</td>\n      <td>foo</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1.0</td>\n      <td>2013-01-02</td>\n      <td>1.0</td>\n      <td>3</td>\n      <td>train</td>\n      <td>foo</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>1.0</td>\n      <td>2013-01-02</td>\n      <td>1.0</td>\n      <td>3</td>\n      <td>test</td>\n      <td>foo</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>1.0</td>\n      <td>2013-01-02</td>\n      <td>1.0</td>\n      <td>3</td>\n      <td>train</td>\n      <td>foo</td>\n    </tr>\n  </tbody>\n</table>
 ```
 
 To see the whole code of `pd.DataFrame._repr_html_` method, run the following code in the Jupyter cell:
@@ -318,6 +318,8 @@ df = pd.DataFrame({ 'A' : 1.,
                     'F' : 'foo' })
 df
 ```
+
+![DataTable representation of pandas DataFrame](/datatables/static/img/datatables.png)
 
 <br>
 

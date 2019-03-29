@@ -86,7 +86,7 @@ Please, bear in mind that the following review is highly subjective and probably
 
 I will dig a little bit into some of the libraries that are supposed to be suitable candidates for our software stack visualization.
 
-> *Scroll down to [summary table](#summary) if you want to skip this perhaps over-explaining self-talk*.
+> *Scroll down to [summary table](#summary-and-conclusion) if you want to skip this perhaps over-explaining self-talk*.
 
 <br>
 
@@ -196,6 +196,7 @@ Its performance is *impressive* and it can handle *HUGE* amount of points due to
 It focuses on simple and quick usage, hence in a few lines of code you get quite a pretty output.
 
 Cons:
+
 ✗ Persistence<br>
 
 ○ Extensibility<br>
@@ -211,7 +212,7 @@ So despite [Holoviews] being awesome (I mean it, really, I love it), it is not s
 
 #### [mpld3]
 
-This is the last library (check out the [summary table](#summary) for info about the rest) that I want to check more extensively, since this one is quite new to me and it looks very promissing. From the description:
+This is the last library (check out the [summary table](#summary-and-conclusion) for info about the rest) that I want to check more extensively, since this one is quite new to me and it looks very promissing. From the description:
 
 > The mpld3 project brings together [Matplotlib](http://www.matplotlib.org/), the popular Python-based graphing library, and [d3], the popular JavaScript library for creating interactive data visualizations for the web. The result is a simple API for exporting your matplotlib graphics to HTML code which can be used within the browser, within standard web pages, blogs, or tools such as the IPython notebook.
 
@@ -257,7 +258,7 @@ I leave it to you to explore the other libraries and check whether I missed some
 
 <br>
 
-### [Summary and conclusion](#summary)
+### Summary and conclusion
 
 |                |            Community           |               Customizability              |                 Ease of use                |                Extensibility               |                 Flexibility                |                 Performance                |           Persistence          |                 Prettiness                 |                 Suitability                |
 |----------------|:------------------------------:|:------------------------------------------:|:------------------------------------------:|:------------------------------------------:|:------------------------------------------:|:------------------------------------------:|:------------------------------:|:------------------------------------------:|:------------------------------------------:|
@@ -298,9 +299,51 @@ All of that in the next article. Stay tuned and thank you for reaching the end o
 
 ### Afterword
 
-:TODO:
+I believe that work should not be duplicated and wheel is not supposed to be reinvented. I also believe that in order to produce ores of the highest quality, there is no workaround but to dig deep into the ground.
+
+We want to have beautiful, highly customized and extensible interactive visualizations of hierarchical software stacks which will persist on notebook safe, will comply with our security standards and will be performant enough not to bother the consumer.
+
+And since we don't want to reinvent the wheel and we haven't found a satisfactory solution, we need to come up with something new! :sunglasses:. Fingers crossed!
+
+<br>
+
+And don't forget ... always take care of your story cards! :wink:
+
+__Acceptance criteria:__
+
+    1)  Make sure visualizations work in Jupyter Notebook
+    2)  Provide both static and interactive options to visualize the software stack
+    3)  Visualization should be customizable
+    4)  Visualization should be easy of use
+    5)  Visualization should be extensible
+    6)  Visualization should be flexible
+    7)  Visualization should be performant enough
+    8)  Visualization should be persistent
+
+__Stretch goals:__
+
+    *) Visualization should be high quality and representative
+    *) Spread across other teams and build a community
+
+
+We've got ourselfs a pretty big card, what do you say?
 
 ---
+
+Resources:
+
+    Bokeh:      https://bokeh.pydata.org/
+    d3:         https://d3js.org/
+    Holoviews:  http://holoviews.org/
+    mpld3:      http://mpld3.github.io/
+    plotly:     https://plot.ly/
+    pyviz:      https://github.com/pyviz/pyviz
+    threejs:    https://threejs.org/
+
+---
+
+
+@AICoE, Thoth Station <https://github.com/thoth-station>
 
 [Bokeh]: https://bokeh.pydata.org/
 [d3]: https://d3js.org/

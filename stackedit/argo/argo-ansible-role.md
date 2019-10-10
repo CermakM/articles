@@ -68,11 +68,13 @@ headings:
 - workflow management
 - argo
 - ansible
+- provisioning
+- example
 
 This post will be most interesting to:
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3MTMyMjMzMCwtMjEzMzcyMTUxNSw3Mz
+eyJoaXN0b3J5IjpbMTU1Nzk4NDY3NywtMjEzMzcyMTUxNSw3Mz
 A5OTgxMTZdfQ==
 -->

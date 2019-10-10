@@ -60,10 +60,12 @@ Since the deployment has been made on OpenShift 3.11, it might happen that some 
 	When you finish this post, you will: most import thing
 	This post will be most interesting to: intended audiences
 
-This post is about deploying Argo
+This post is about deploying Argo Ansible on OpenShift 3.11 using Ansible
+
+When you finish this post, you will be able to use the Ansible to deploy Argo into your own namespace.
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NTk4Mjk3NCwtMjEzMzcyMTUxNSw3Mz
-A5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbLTE2MjUxMDcwOTYsLTIxMzM3MjE1MTUsNz
+MwOTk4MTE2XX0=
 -->

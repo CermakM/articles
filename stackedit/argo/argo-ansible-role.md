@@ -52,10 +52,18 @@ Probably the easiest solution is to set up your local minishift / minikube clust
 Since the deployment has been made on OpenShift 3.11, it might happen that some difficulties occur on minikube or other OpenShift versions. Any input/feedback in this direction is greatly appreciated
 
 ## Sections
-Headi
+### Heading
+### Intro paragraph
+
+	This post is about: topic
+	It covers: headings
+	When you finish this post, you will: most import thing
+	This post will be most interesting to: intended audiences
+
+This post is about deploying Argo
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODcyNzU3NDAsLTIxMzM3MjE1MTUsNz
-MwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbLTU3NTk4Mjk3NCwtMjEzMzcyMTUxNSw3Mz
+A5OTgxMTZdfQ==
 -->

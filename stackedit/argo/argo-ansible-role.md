@@ -12,9 +12,9 @@ Team.
 Slack.
 
 ### What else did you try/has been tried before?
-Deploying by hand, editing resources from the command line is not fun.
+Deploying by hand, editing resources from the command line was not fun.
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTA5NTk2MzQsNzMwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbLTIxMzM3MjE1MTUsNzMwOTk4MTE2XX0=
 -->

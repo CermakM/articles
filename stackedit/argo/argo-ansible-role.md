@@ -38,14 +38,14 @@ We can now provision / deprovision Argo in a clean namespace in seconds and be u
 ## Now what?
 
 ### How would I develop the subject of the post further from here?
-C
 
 ### What is the next logical improvement that I could make in the same direction?
+Current role provides Argo namespace-level installation. Since Argo itself also provides cross-namespace scheduling (on the Cluster level), the role should also be able to take care of that.
 
 ###
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzEyODY0ODIyLC0yMTMzNzIxNTE1LDczMD
+eyJoaXN0b3J5IjpbODUzOTc0NzQ2LC0yMTMzNzIxNTE1LDczMD
 k5ODExNl19
 -->

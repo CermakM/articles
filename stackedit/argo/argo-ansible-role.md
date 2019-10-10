@@ -24,7 +24,7 @@ The Argo deployment can now be automated and customize to ones needs.
 It can be annoying to separate the resources that have to be deployed by cluster-admin from those that namespaces admins can create. The role makes it easy.
 
 ### What new connections have been made?
--
+/
 
 ### What is true now that wasn't true before?
 Argo can now be seamlessly deployed into an OpenShift namespace (tested on OpenShift 3.11).
@@ -35,8 +35,17 @@ You are now familiar with the requirements to deploy Argo to a namespace and the
 ### How are you / your team / your project / Red Hat / the world better than before?
 We can now provision / deprovision Argo in a clean namespace in seconds and be up and running in seconds.
 
+## Now what?
+
+### How would I develop the subject of the post further from here?
+C
+
+### What is the next logical improvement that I could make in the same direction?
+
+###
+
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkxMTY1ODMzOCwtMjEzMzcyMTUxNSw3Mz
-A5OTgxMTZdfQ==
+eyJoaXN0b3J5IjpbMzEyODY0ODIyLC0yMTMzNzIxNTE1LDczMD
+k5ODExNl19
 -->

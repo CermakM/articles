@@ -26,12 +26,15 @@ It can be annoying to separate the resources that have to be deployed by cluster
 ### What new connections have been made?
 
 ### What is true now that wasn't true before?
-Argo can now be seamlessly deployed into an OpenShift (at least OpenShift
+Argo can now be seamlessly deployed into an OpenShift namespace (tested on OpenShift 3.11).
+
 ### What do you know now that you didn't know before?
+You are now familiar with the requirements to deploy Argo to a namespace and the resources that must be present in advance and the RBAC required
+
 ### How are you / your team / your project / Red Hat / the world better than before?
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODYyNTA0ODMwLC0yMTMzNzIxNTE1LDczMD
-k5ODExNl19
+eyJoaXN0b3J5IjpbMTc3NDg0OTI0OSwtMjEzMzcyMTUxNSw3Mz
+A5OTgxMTZdfQ==
 -->

@@ -64,8 +64,15 @@ This post is about deploying Argo Ansible on OpenShift 3.11 using Ansible
 
 When you finish this post, you will be able to use the Ansible to deploy Argo into your own namespace.
 
+headings:
+- workflow management
+- argo
+- ansible
+
+This post will be most interesting to:
+
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjUxMDcwOTYsLTIxMzM3MjE1MTUsNz
-MwOTk4MTE2XX0=
+eyJoaXN0b3J5IjpbMTE3MTMyMjMzMCwtMjEzMzcyMTUxNSw3Mz
+A5OTgxMTZdfQ==
 -->

@@ -45,12 +45,13 @@ Current role provides Argo namespace-level installation. Since Argo itself also 
 ### What does the thing you've just done set you up to do in the future?
 
 ### How can the reader verify what you've just shown, and apply it to their own situation?
-Probably the easiest solution is to set up your local minishift / minikube cluster to test the deplo
+Probably the easiest solution is to set up your local minishift / minikube cluster to test the deployment on.
 
 ### How can the reader help you?
+Since the deployment has been made on OpenShift 3.11, it might happen that some difficulties occur on minikube or other OpenShift versions. Any input in this direction
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYyNDk1NDc0LC0yMTMzNzIxNTE1LDczMD
-k5ODExNl19
+eyJoaXN0b3J5IjpbMTQ3OTEzMTczMiwtMjEzMzcyMTUxNSw3Mz
+A5OTgxMTZdfQ==
 -->

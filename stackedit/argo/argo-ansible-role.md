@@ -1,24 +1,33 @@
 
-## What?
-### What problem are you trying to solve?
-Having a reproducible and configurable Argo deployment strategy.
+<!-- 1] WHAT? -->
 
-### What led you to this point? Story?
-Repetitive deployments.
-Customization and configuration required.
-Editing resources from the command line.
+<!-- 1) What problem are you trying to solve? -->
 
-### Who else was involved?
-Team.
-Slack.
+Recently, a need for some sort of a workflow management on top of Kubernetes has arisen in our team due to various reasons — the architecture has become so convoluted that it is now hard to manage all of its components — and [Argo]'s been picked as the engine of choice.
 
-### What else did you try/has been tried before?
-Deploying by hand, editing resources from the command line was not fun.
+<!-- 2) What led you to this point? Story? -->
 
-## So what?
+[Argo] being a configurable beast who can do a lot of good when treated well has a non-trivial provisioning. In order for Argo to fit our needs, the deployment had to be slightly adjusted (more to that later) and the configuration tweaked as well.
+As such, a reproducible deployment strategy for both Kubernetes and OpenShift and configurable provisioning has been a hard requirements so that we could iterate quickly on the workflow design itself.
+
+<!-- Who else was involved? -->
+<!-- - -->
+
+<!-- What else did you try/has been tried before? -->
+<!-- - -->
+
+## Argo
+
+Even though this isn't an article about Argo, neither shall I explain the process that lead to the choice of Argo over other solutions that we'd considered (of which [Tekton] is very well worth mentioning), I will still vaguely describe the purpose and nature of Argo.
+
+As [Argo] developers puts it themselves: "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. Argo Workflows is implemented as a Kubernetes CRD (Custom Resource Definition)." Each workflows is then composed of one or more steps, where each step leads to a pod being created in the cluster. Steps can be arranged in a sequence or in a directed acyclic graph (DAG) which allows for an easy orchestration and parallelisation of jobs on top of Kubernetes. In fact, not only jobs, but also *resources* can be orchestrated, which makes Argo very unique and very fit for our use case. There are plenty of other features that Argo natively support, I encourage you to read about them in [the project readme](https://github.com/argoproj/argo#features).
+
+
+
+<!-- 2] SO WHAT? -->
 
 ### What change have you made?
-The Argo deployment can now be automated and customize to ones needs.
+The Argo deployment can now be automated and customized to ones needs.
 
 ### What new capabilities have been developed?
 It can be annoying to separate the resources that have to be deployed by cluster-admin from those that namespaces admins can create. The role makes it easy.
@@ -35,7 +44,7 @@ You are now familiar with the requirements to deploy Argo to a namespace and the
 ### How are you / your team / your project / Red Hat / the world better than before?
 We can now provision / deprovision Argo in a clean namespace in seconds and be up and running in seconds.
 
-## Now what?
+<!-- 3] NOW WHAT? -->
 
 ### How would I develop the subject of the post further from here?
 
@@ -75,8 +84,6 @@ headings:
 
 This post will be most interesting to:
 
-> Written with [StackEdit](https://stackedit.io/).
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYzNjYyNTI0LC0yMTMzNzIxNTE1LDczMD
-k5ODExNl19
--->
+<!-- References -->
+[Argo]: https://github.com/argoproj/argo
+[Tekton]: https://github.com/tektoncd/pipeline

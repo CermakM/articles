@@ -137,17 +137,78 @@ ansible-playbook provision.yaml --e as=developer
 
 ### Overlays
 
+If you're familiar with [Kustomize], you may have come across the term [overlay](https://github.com/kubernetes-sigs/kustomize/blob/master/docs/glossary.md#overlay) already. The *overlay*, as Kustomization glossary puts it, is a kustomization which depends on another kustomization. Basically, `kustomize` itself allows you to *build* a concatenated manifest file composed of various resource specifications. When we add an overlay on top of that, we then add/edit certain resources to/in that concatenated manifest effectively building a customized manifest for certain environment.
+A typical use case would be *test* *stage* and *production* overlays, for example.
+
+In our case, the role uses [Kustomize] as well and it allows you to specify an `overlay` to be used. Currently, only one is implemented — `openshift`. By default the role creates cloud-agnostic resources. When passing in `overlay=openshift` parameter, it also creates OpenShift specific resources, like **routes** and adds **RBAC** to the argo `Role` to `images.openshift.io`, `builds.openshift.io`, etc...
+
+
+```bash
+ansible-playbook provision.yaml --e as=developer --e overlay=openshift
+```
+
 ### Additional configuration
 
+There are additional configuration options. Among these would be for example **Artifact repository options**, which configures Argo controller to use an `s3` artifact storage, or **executor** configuration, i.e. choosing `kubelet`, `K8sApi` or `PNS` instead of the default `docker` executor, which can be useful for environment with restricted **security policy**.
+
+I encourage you to check out the [Role Variables](https://github.com/CermakM/ansible-role-argo-workflows/blob/master/README.md#role-variables) section in the README to learn more about them.
+
+### Example Playbook
+
+Here the only thing left before you're all up and ready is the **provisioning playbook**. Taking the example from the [README](https://github.com/CermakM/ansible-role-argo-workflows/blob/master/README.md) file, a basic playbook could like like this:
+
+```yaml
+---
+- name: "A basic Play to provision Argo into a single namespace."
+
+  # given that you have minishift/minikube running on a local machine
+  hosts: localhost
+  connection: local
+
+  roles:
+  - role: cermakm.argo-workflows
+    tags:
+      - argo
+      - argo-workflows
+    namespace: argo
+    ref: v2.4.1  # when omitted, uses the latest release
+```
 
 <!-- 3) What new connections have been made? -->
 <!-- - -->
 
 <!-- 4) What is true now that wasn't true before? -->
-
 <!-- 5) What do you know now that you didn't know before? -->
-
 <!-- 6) How are you / your team / your project / Red Hat / the world better than before? -->
+
+When provisioned successfully, on [minishift] you would end up with a `workflow-controller` and `argo-ui` running in your namespace of choice. The whole deployment takes just a few seconds — sorry, not enough time for a cup of coffee — and you are ready to submit a hello-world workflow: 
+
+```
+# @file hello-world.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: hello-world-
+spec:
+  entrypoint: whalesay
+  templates:
+  - name: whalesay
+    container:
+      image: docker/whalesay:latest
+      command: [cowsay]
+      args: ["hello world"]
+```
+
+```bash
+# make sure you have Argo CLI installed, the role doesn't take care of that (at least not yet)
+argo submit --watch https://raw.githubusercontent.com/argoproj/argo/master/examples/hello-world.yaml
+# or running as the newly created SA
+argo submit --watch --serviceaccount=argo https://raw.githubusercontent.com/argoproj/argo/master/examples/hello-world.yaml
+```
+
+<p align="center">
+	<img src="assets/minishift-argo-overview.png" />
+</p>
 
 <!-- 3] NOW WHAT? -->
 ## What now?
@@ -170,6 +231,7 @@ Good luck and happy provisioning!
 
 <!-- References -->
 [Argo]: https://github.com/argoproj/argo
+[Kustomize]: https://github.com/kubernetes-sigs/kustomize
 [Tekton]: https://github.com/tektoncd/pipeline
 
 [minishift]: https://www.okd.io/minishift/

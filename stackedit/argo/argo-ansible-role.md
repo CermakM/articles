@@ -121,7 +121,10 @@ The [Ansible role for Argo Workflows](https://github.com/CermakM/ansible-role-ar
 The role accepts the `as` argument which is used to determine what resources should be created in a given `namespace` (which is another configurable). In a [multi-tenant](https://cloud.google.com/kubernetes-engine/docs/concepts/multitenancy-overview) architecture which is typical for Kubernetes (or OpenShift, for that matter), there is a decent chance that the RBAC policy does not grant you the privileges to create resources on a cluster-level. In fact, this is the default behaviour on OpenShift. Therefore, it might be a good idea to attempt to deploy only the resources that you actually *can* create and let cluster-admins handle the rest in advance (they usually only need to do that once for a new namespace).
 
 <p align="center">
-	<img src="https://cloud.google.com/kubernetes-engine/images/enterprise-multitenancy.svg" />
+	<img src="https://github.com/CermakM/articles/blob/master/stackedit/argo/assets/enterprise-multitenancy.png?raw=true" />
+	<span style="font-size:small;">
+		Credit: <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/multitenancy-overview">cloud.google.com</a>
+	</span>
 </p>
 
 The role by default assumes `as=cluster-admin` and `namespace=argo`. As developer, just pass in `as=developer` to the role and let it handle the rest.

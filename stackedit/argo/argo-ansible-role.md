@@ -184,6 +184,7 @@ Here the only thing left before you're all up and ready is the **provisioning pl
 When provisioned successfully, on [minishift] you would end up with a `workflow-controller` and `argo-ui` running in your namespace of choice. The whole deployment takes just a few seconds — sorry, not enough time for a cup of coffee — and you are ready to submit a hello-world workflow: 
 
 ```
+---
 # @file hello-world.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
@@ -207,8 +208,11 @@ argo submit --watch --serviceaccount=argo https://raw.githubusercontent.com/argo
 ```
 
 <p align="center">
-	<img src="assets/minishift-argo-overview.png" />
+	<img src="https://github.com/CermakM/articles/blob/master/stackedit/argo/assets/minishift-argo-overview.png?raw=true" />
 </p>
+
+> TIP: Check out the Argo UI to see the visualized workflow, especially for more complex workflow, it is a neat way to explore what's happening.
+
 
 <!-- 3] NOW WHAT? -->
 ## What now?
@@ -230,9 +234,10 @@ Probably the easiest solution to try all of the things described above is to set
 Good luck and happy provisioning!
 
 <!-- References -->
-[Argo]: https://github.com/argoproj/argo
-[Kustomize]: https://github.com/kubernetes-sigs/kustomize
-[Tekton]: https://github.com/tektoncd/pipeline
-
 [minishift]: https://www.okd.io/minishift/
 [minikube]: https://github.com/kubernetes/minikube
+
+[Argo]: https://github.com/argoproj/argo
+[Kustomize]: https://github.com/kubernetes-sigs/kustomize
+
+[Tekton]: https://github.com/tektoncd/pipeline

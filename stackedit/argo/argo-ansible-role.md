@@ -31,7 +31,7 @@ As such, a reproducible deployment strategy for both Kubernetes and OpenShift an
 ## Argo
 
 <p align="center">
-	<img src="https://miro.medium.com/max/963/1*ZKFG3dbNO3S646rM1BFkrw.png" />
+	<img src="https://github.com/CermakM/articles/blob/master/stackedit/argo/assets/argo-workflow-example.png?raw=true" />
 	<span style="font-size:small;">
 		Credit: <a href="https://blog.argoproj.io">argoproj.io</a>
 	</span>

@@ -186,7 +186,7 @@ Here the only thing left before you're all up and ready is the **provisioning pl
 
 When provisioned successfully, on [minishift] you would end up with a `workflow-controller` and `argo-ui` running in your namespace of choice. The whole deployment takes just a few seconds — sorry, not enough time for a cup of coffee — and you are ready to submit a hello-world workflow: 
 
-```
+```yaml
 ---
 # @file hello-world.yaml
 apiVersion: argoproj.io/v1alpha1

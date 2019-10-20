@@ -77,9 +77,12 @@ name: Python package release
 
 From now on, you'll see the workflow under your Workflows:
 
-<center>
-  <img src="assets/python-package-release-workflow.png">
-</center>
+<p align="center">
+  <img src="assets/python-package-release-workflow.png" />
+	<span style="font-size:small;">
+		Workflows overview
+	</span>
+</p>
 
 
 #### Workflow triggers
@@ -166,6 +169,58 @@ Finally, the `twine` uploads the package to the PyPI repository using credential
 
 Now whenever we create a tag and push it to the remote, it will get published to the PyPI.
 
+The whole workflow looks like this:
+
+```yaml
+# @file package-release.yml
+---
+name: Python package release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  release:
+
+    # specify the instance
+    runs-on: ubuntu-latest
+
+    steps:
+    # checkout the repository to master
+    # and use it as the current working directory
+    - uses: actions/checkout@v1
+    - name: Setup Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.6"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+
+        pip install .
+        # release and testing dependencies
+        pip install twine flake8
+
+    - name: Lint with flake8instance
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Build Python package
+      run: |
+        python setup.py sdist bdist_wheel
+    
+    - name: Twine check
+      run: |
+        twine check dist/*
+        
+    - name: Publish to PyPI
+      run: |
+        twine upload --repository-url https://upload.pypi.org/legacy/ dist/* -u ${{ secrets.PYPI_USER }} -p ${{ secrets.PYPI_PASSWORD }}
+```
 
 ### Examining the workflow
 
@@ -174,9 +229,14 @@ All workflows can be found in the `Actions` tab in your repository, i.e. `https:
 ### Note on status checks
 If you wish your workflow to block a PR from being merged, you can set [branch protection rules](https://help.github.com/en/articles/defining-the-mergeability-of-pull-requests) and if the workflow fails, the PR will not be able to be merged. This is the behaviour that you might be used to when working with the current CIs.
 
-<center>
+For example, having a NodeCI matrix setup:
+
+<p align="center">
   <img src="assets/github_actions_status_check.png">
-</center>
+	<span style="font-size:small;">
+		GitHub Actions as status checks
+	</span>
+</p>
 
 ## Marketplace
 

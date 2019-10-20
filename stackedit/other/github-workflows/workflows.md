@@ -1,5 +1,7 @@
 # Guide to a custom CI/CD with GitHub Actions
-# Part 1: Workflows
+## Part 1: Workflows
+
+<br>
 
 CI/CD is a set of practices which have a significant impact to the way new releases are delivered and maintained. Change validation by creating a build and running automated tests, continuously releasing and delivering the changes to the customers in a sustainable are the practices which distinguish a well-maintained code from just ... a code.
 
@@ -79,8 +81,9 @@ From now on, you'll see the workflow under your Workflows:
 
 <p align="center">
   <img src="assets/python-package-release-workflow.png" />
+  <br>
 	<span style="font-size:small;">
-		Workflows overview
+    Workflows overview
 	</span>
 </p>
 
@@ -233,6 +236,7 @@ For example, having a NodeCI matrix setup:
 
 <p align="center">
   <img src="assets/github_actions_status_check.png">
+  <br>
 	<span style="font-size:small;">
 		GitHub Actions as status checks
 	</span>

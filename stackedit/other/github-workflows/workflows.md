@@ -22,8 +22,8 @@ First thing that comes to mind, obviously, is the native **integration** with Gi
 | --------------------    | ----------- |
 | GITHUB_WORKFLOW	      | The name of the workflow. |
 | GITHUB_REPOSITORY       | The owner and repository name. For example, octocat/Hello-World. |
-| GITHUB_EVENT_NAME	Th  e | name of the webhook event that triggered the workflow. |
-| GITHUB_WORKSPACE        | The GitHub workspace directory path. The workspace directory contains a subdirectory with a copy of your repository if your workflow uses the actions/checkout action. If you don't use the actions/checkout action, the directory will be empty. For example, /home/runner/work/my-repo-name/my-repo-name. |
+| GITHUB_EVENT_NAME | 	The name of the webhook event that triggered the workflow. |
+| GITHUB_WORKSPACE        | The GitHub workspace directory path. The workspace directory contains a subdirectory with a copy of your repository if your workflow uses the actions/checkout action.<br>**If you don't use the actions/checkout action, the directory will be empty**. |
 | GITHUB_REF              | The branch or tag ref that triggered the workflow. For example, refs/heads/feature-branch-1. If neither a branch or tag is available for the event type, the variable will not exist. |
 
 and more ...

@@ -61,9 +61,9 @@ jobs:
 Unless specified otherwise, parent jobs must complete successfully in order for the child jobs to run.
 
 ### Python package release workflow
-Let's start defining a simple workflow. We'll want to **publish a Python package to PyPI**. Quite a common use case which gets very annoying over time.
+Let's start with a simple workflow. We'll want to **publish a Python package to PyPI**. Quite a common use case which gets very annoying over time.
 
-> **NOTE:** This workflow will serve for illustration purposes. You can make use of the existing [**Python Release action**]() which takes care of the **whole release process** for you in a single step. See further.
+> **NOTE:** This workflow will serve for illustration purposes. You can make use of the existing one -- for simple publishing there is [py-package-publish](https://github.com/marketplace/actions/py-package-publish). If you want to manage the **whole release process** (branches, tags, changelogs, releases and publishing altogether), there is a an Action of mine under development: [**Python Release action**](https://github.com/CermakM/python-release-action) which is an implementation of [Release Bot](https://github.com/user-cont/release-bot/issues/new). See further.
 
 #### Creating a workflow file
 
@@ -92,7 +92,7 @@ From now on, you'll see the workflow under your Workflows:
 
 We probably want to trigger this workflow only on certain *events*. You can configure your workflows to run when specific activity on GitHub happens, at a schedule time, or even when an event outside of GitHub occurs!.
 
-There is plethore of [Events that trigger workflows
+There is plethora of [Events that trigger workflows
 ](https://help.github.com/en/articles/events-that-trigger-workflows#scheduled-events) to choose from. However, we are interested in a particular one -- in the [release](https://help.github.com/en/articles/events-that-trigger-workflows#release-event-release) event.
 
 ```yaml
@@ -125,7 +125,7 @@ jobs:
         python-version: "3.6"
 ```
 
-What happened here? What you see above are what we call the *actions*. These are pre-defined workflow steps, either by yourself or someone else. In this case, the `actions/` is an official GitHub repository, but if you used mine, for example the release action that I mentioned in the comment above, you would have to write `uses: cermakm/python-release-action@master` (or any other existing ref). We'll take a look at how these actions are created in the next part of this post.
+What happened here? What you see above are what we call the *actions*. These are pre-defined workflow steps, either by yourself or someone else. In this case, the `actions/` is an official GitHub repository, but if you used mine, for example the release action that I mentioned in the comment above, you would have to write `uses: cermakm/python-release-action@experimental` (or any other existing ref). We'll take a look at how these actions are created in the next part of this post.
 
 The `actions/checkout` is necessary if you want to use the content of your repository. It mounts it to the current working directory and also sets up the `GITHUB_WORKSPACE` environment variable. The `actions/setup-python` is pretty self-explanatory.
 

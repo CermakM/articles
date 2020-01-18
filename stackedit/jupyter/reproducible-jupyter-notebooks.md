@@ -1,8 +1,8 @@
 # Jupyter Notebooks in production workflows
-## Reproducibility and sharing
+## Part I: Reproducibility and sharing
 
 <div style="text-align:center">
-<img alt="NBRequirements UI" src="https://raw.githubusercontent.com/CermakM/jupyter-nbrequirements/master/assets/ui.png">
+<img alt="NBRequirements UI" src="https://raw.githubusercontent.com/CermakM/jupyter-nbrequirements/master/assets/ui.png"><br>
 <span>Fig. 1: Jupyter NBRequirements UI</span>
 </div>
 
@@ -135,6 +135,23 @@ or using the UI:
 - [optionally] add and install custom dependencies (and hence becoming the author, see Scenario A)
 
 * The UI currently does not create a new virtual environment, neither it initializes a new kernel (as opposed to the `%dep ensure` command). This will be possible in further releases.
+
+</div>
+
+<div style="text-align:center">
+<img alt="NBRequirements UI" src="https://raw.githubusercontent.com/CermakM/jupyter-nbrequirements/master/assets/nbrequirements.gif"><br>
+<span>Fig. 2: Adding dependencies w/ Jupyter NBRequirements UI</span>
+</div>
+
+## Conclusion
+
+<div align="justify">
+
+Jupyter notebooks are commonly not considered as stand-alone units. However, it can be viewed as such quite easily.
+One of the common problems with sharing them is that we have to provide dependencies (requirements) as an additional manifest file and eventually set up a virtual environment for each notebook (if we, in fact, care about the best practicies).
+All of these can be easily taken over by [jupyter-nbrequirements] notebook extension. It's a dependency management embedded and natively communicating with Jupyter notebook and it's kernel. I consider it to be one of the first steps in building reproducible (and eventually even *optimized*) pipelines using just these notebooks.
+
+In the next sections, we'll take a look at how Jupyter notebooks can be turned into container images and executed as part of a continuous integration check-suit or as a Kubernetes Job / CronJob. Stay tuned!
 
 </div>
 

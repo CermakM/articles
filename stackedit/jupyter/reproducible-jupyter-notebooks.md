@@ -1,7 +1,10 @@
 # Jupyter Notebooks in production workflows
 ## Reproducibility and sharing
 
----
+<div style="text-align:center">
+<img alt="NBRequirements UI" src="https://raw.githubusercontent.com/CermakM/jupyter-nbrequirements/master/assets/ui.png">
+<span>Fig. 1: Jupyter NBRequirements UI</span>
+</div>
 
 <div align="justify">
 
@@ -23,11 +26,6 @@ This is quite inconvenient. For example, if we want to share the notebook, we ha
 So... What if a notebook *was* in fact a self contained unit? That would mean that we could share the notebook by itself, execute it right ahead or build an image from it. We would have a **reproducible piece of code.**
 
 In the following section I'll showcase a library called [jupyter-nbrequirements] which does precisely that -- turns a Jupyter notebook into a self-contained unit by allowing us to **manage the notebook's dependencies** with ease without even leaving the notebook.
-
-<div style="text-align:center">
-<img alt="NBRequirements UI" src="https://raw.githubusercontent.com/CermakM/jupyter-nbrequirements/master/assets/ui.png">
-<span>Fig. 1: Jupyter NBRequirements UI</span>
-</div>
 
 </div>
 
@@ -91,7 +89,9 @@ python_version = "3.6"
 
 > NOTE: The `%requirements` command is capable of **analysing library usage** and can detect additional dependencies that you notebook might need (still experimental and therefore not 100% reliable). You should check the output carefully and optionally add those dependencies as well.
 
-Up to this point, we've been working only with the metadata. In order to create the environment and actually install the dependencies, you run the `%dep ensure` command (insipired by the golang's [dep](https://github.com/golang/dep), for those familiar with Golang).
+Up to this point, we've been working only with the metadata. In order to create the environment and actually install the dependencies, you run the `%dep ensure` command (inspired by the golang's [dep](https://github.com/golang/dep), for those familiar with Golang).
+
+All the dependencies **are automatically locked down** so that the user can then be sure to install the same versions. This is **important** not only because different version might simply not work and the notebook raises an exception, but especially for data scientists who train and validate ML models, **different versions might yield different results**! Reproducibility of results of the execution is perhaps even more important as the ability to execute the notebook itself.
 
 
 ```
@@ -111,10 +111,30 @@ The resolution engine can be specified as an argument to `%dep ensure --engine`.
 Since [v0.4.0](https://github.com/CermakM/jupyter-nbrequirements/releases/tag/v0.4.0), [jupyter-nbrequirements] introduced a user interface (see Fig. 1)! Needless to say more -- check it out, interact with it and see what it can offer you!
 The Jupyter magic commands are in sync with the UI, so don't worry old schoolers, you can still run the commands manually and the existing notebooks will work!
 
-The UI will automatically look up the package you're trying to add and the relevant version this package has. That way, the notebook authors **dont't expose themselves to the risk that they specify a non-existing version**.
+The UI will automatically look up the package you're trying to add and the relevant version this package has. That way, the notebook authors **don't expose themselves to the risk that they specify a non-existing version**.
 
+</div>
 
-## Scenario A: User's perspective
+## Scenario B: User's perspective
+
+<div align="justify">
+
+Now we're in position of a receiver of the shared notebook. It can be a data scientist testing out a pull request of a colleague, it can be an image build, a kubernetes cron job, a CI... you name it.
+
+First thing the receiver of the notebook sees, is a modal loader that initializes the NBRequirements UI and looks up the dependencies. This usually takes just a few seconds.
+
+The user has it pretty easy already. All they have to do is to do the following:
+
+- either run `%dep ensure` command which takes care of the rest and prepares the notebook **and virtual environment with a freshly created Jupyter kernel** accordingly
+
+or using the UI:
+
+- [optionally] create a virtual environment for the notebook to run in*
+- check out whether all of the required packages are installed
+- if not, **click the `Install` button** to install them
+- [optionally] add and install custom dependencies (and hence becoming the author, see Scenario A)
+
+* The UI currently does not create a new virtual environment, neither it initializes a new kernel (as opposed to the `%dep ensure` command). This will be possible in further releases.
 
 </div>
 
